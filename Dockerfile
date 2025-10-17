@@ -1,4 +1,4 @@
-ARG VERSION=1.115.2
+ARG VERSION=1.115.3
 
 FROM node:22-alpine AS base
 ENV PNPM_HOME="/pnpm"
