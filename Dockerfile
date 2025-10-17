@@ -1,4 +1,4 @@
-ARG VERSION=latest
+ARG VERSION=1.115.2
 
 FROM node:22-alpine AS base
 ENV PNPM_HOME="/pnpm"
@@ -14,7 +14,8 @@ RUN pnpm run build
 
 FROM n8nio/n8n:${VERSION}
 
-LABEL org.opencontainers.image.url="https://github.com/egvimo/docker-n8n-python"
+LABEL org.opencontainers.image.title=n8n-custom
+LABEL org.opencontainers.image.url="https://github.com/egvimo/n8n-custom"
 LABEL org.opencontainers.image.source="https://github.com/n8n-io/n8n"
 LABEL org.opencontainers.image.version=${VERSION}
 

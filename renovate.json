@@ -1,6 +1,22 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base"
+  "extends": ["config:recommended"],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "versioningTemplate": "semver-coerced",
+      "managerFilePatterns": ["/^Dockerfile$/"],
+      "matchStrings": ["ARG\\sVERSION=(?<currentValue>[^\\s]+)"],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "n8n-io/n8n",
+      "extractVersionTemplate": "n8n@(?<version>.*)"
+    }
+  ],
+  "packageRules": [
+    {
+      "matchPackageNames": ["n8n", "n8nio/n8n"],
+      "matchManagers": ["dockerfile"],
+      "enabled": false
+    }
   ]
 }
