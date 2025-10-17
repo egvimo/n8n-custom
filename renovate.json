@@ -6,7 +6,7 @@
       "customType": "regex",
       "versioningTemplate": "semver-coerced",
       "managerFilePatterns": ["/^Dockerfile$/"],
-      "matchStrings": ["ARG\\sVERSION=(?<currentValue>[^\\s]+)"],
+      "matchStrings": ["FROM\\sn8nio/n8n:(?<currentValue>[^\\s]+)"],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "n8n-io/n8n",
       "extractVersionTemplate": "n8n@(?<version>.*)"

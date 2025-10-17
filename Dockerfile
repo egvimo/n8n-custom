@@ -1,5 +1,3 @@
-ARG VERSION=1.115.3
-
 FROM node:22-alpine AS base
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
@@ -12,12 +10,11 @@ RUN git clone https://github.com/egvimo/n8n-nodes-apprise.git .
 RUN pnpm install --frozen-lockfile
 RUN pnpm run build
 
-FROM n8nio/n8n:${VERSION}
+FROM n8nio/n8n:1.115.3
 
 LABEL org.opencontainers.image.title=n8n-custom
 LABEL org.opencontainers.image.url="https://github.com/egvimo/n8n-custom"
 LABEL org.opencontainers.image.source="https://github.com/n8n-io/n8n"
-LABEL org.opencontainers.image.version=${VERSION}
 
 USER root
 

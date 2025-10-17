@@ -28,7 +28,7 @@ jobs:
       - name: Get version
         id: version
         run: |
-          version=$(grep -m1 '^ARG VERSION=' Dockerfile | cut -d= -f2)
+          version=$(grep -m1 '^FROM n8nio/n8n:' Dockerfile | sed -E 's/^FROM n8nio\/n8n:([0-9]+\.[0-9]+\.[0-9]+).*$/\1/')
           echo "version=$version" >> $GITHUB_ENV
 
       - name: Docker meta
