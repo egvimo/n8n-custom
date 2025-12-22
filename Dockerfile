@@ -10,7 +10,7 @@ RUN git clone https://github.com/egvimo/n8n-nodes-apprise.git .
 RUN pnpm install --frozen-lockfile
 RUN pnpm run build
 
-FROM n8nio/n8n:2.0.2
+FROM n8nio/n8n:2.1.2
 
 LABEL org.opencontainers.image.title=n8n-custom
 LABEL org.opencontainers.image.url="https://github.com/egvimo/n8n-custom"
